@@ -71,8 +71,9 @@ export const QuestionForm = ({
           </Select>
         </FormControl>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} className="default-input" sx={{ pt: 0 }}>
         <TextField
+          sx={{ pt: 0 }}
           label="Default Value"
           value={value}
           onChange={(e) => setValue(e.target.value)}

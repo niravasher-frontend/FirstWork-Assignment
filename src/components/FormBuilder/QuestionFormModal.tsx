@@ -32,13 +32,15 @@ export const QuestionFormModal = ({
   const [validations, setValidations] = useState<Validations>({});
 
   const validate = () => {
-    console.log("this");
     const newErrors: Record<string, string> = {};
     if (!label.trim()) newErrors.label = "Label is required";
     if (type === FieldType.Select && options.length === 0) {
       newErrors.options = "At least one option is required";
     }
     if (type === FieldType.Number) {
+      if (!value.trim()) {
+        return true;
+      }
       if (value && isNaN(Number(value))) {
         newErrors.value = "Value must be a number";
       } else if (
